@@ -1,0 +1,49 @@
+table.results {
+    border: 1px solid #000E0D;
+    border-collapse: collapse;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+table.results tr.subject{
+    background-color: #000E0D;
+    width: 100%;
+}
+
+table.results tr.taskheader{
+    background-color: #001F1D;
+}
+
+table.results tr.task{
+    background-color: #EDDDC0;
+}
+
+table.results tr.task:nth-child(even) {
+    background-color: #D0E7E5; /*236863*/
+}
+
+table.results tr.task th{
+    background-color: red;
+}
+
+table.results p {
+    padding: 3px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: normal;
+    color: black;
+}
+
+table.results tr.subject p{
+    font-size: 14pt;
+    padding: 10px;
+    color: #AA8238;
+    font-weight: bold;
+}
+
+table.results tr.taskheader p{
+    font-size: 12pt;
+    color: #AA8238;
+}
+

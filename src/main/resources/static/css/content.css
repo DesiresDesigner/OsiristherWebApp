@@ -1,0 +1,10 @@
+div.content {
+    margin-left: 300px;
+    margin-right: 0px;
+    overflow: hidden;
+    min-height: 100%;
+    background-color: #D6D6D6;
+
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+}

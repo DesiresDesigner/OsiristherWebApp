@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="base_template" id="base_template">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/base.css" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/css/navigate.css" th:href="@{/css/navigate.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/css/content.css" th:href="@{/css/content.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/css/results.css" th:href="@{/css/results.css}" />
+    <title>Osiristher</title>
+</head>
+<body>
+    <header>
+        <div class = "user_profile">
+            <div class = "ava" style = "background-image: url('img/ava.png')"></div>
+            <div class = "user_info">
+                <p th:text="${username}"></p>
+                <p th:text="'Student'" ></p>
+                <p th:text="'Log out'" ></p>
+                <!--DesiresDesigner <br>
+                Student <br>
+                Log out-->
+            </div>
+        </div>
+
+        <div class="logo">
+            <p class = "name">Osiristher</p>
+            <p class = "subname">Testing System</p>
+        </div>
+    </header>
+
+    <div id = "base">
+        <div class="navigate_bar" th:include="this :: menu">
+
+        </div>
+        <div class = "content" th:include="this :: content">
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Made by DesiresDesigner</p>
+    </footer>
+</body>
+</html>
