@@ -81,5 +81,19 @@ div#base {
     width: 100%;
     min-height: 80%;
     overflow: hidden;
+    background-color: #D6D6D6;
     /*overflow: auto;*/
+}
+
+a.home_link:link {
+    color: #AA8238;
+}
+a.home_link:visited {
+    color: #AA8238;
+}
+a.home_link:active {
+    color: #AA8238;
+}
+a.home_link:hover {
+    color: #A7373D;
 }

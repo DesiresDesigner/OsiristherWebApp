@@ -37,8 +37,7 @@ public class MainController {
         if (user.getRole().equals("ROLE_STUDENT")) {
             mav.setViewName("student_home");
             mav.addObject("student", studentRepo.findOne(user.getId()));
-        }
-        if (UserManagerUtil.hasRole("ROLE_TRAINER")) {
+        } else if (UserManagerUtil.hasRole("ROLE_TRAINER")) {
             mav.addObject("trainer", trainerRepo.findOne(user.getId()));
             mav.setViewName("trainer_home");
         }

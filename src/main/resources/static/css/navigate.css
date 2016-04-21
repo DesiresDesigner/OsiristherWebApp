@@ -15,7 +15,7 @@
     margin-bottom: -9999px;
 }
 
-.navigate_bar .subject {
+div.subject {
     width: 100%;
     min-height: 30px;
     /*border-top: 1px solid #000E0D;*/
@@ -23,7 +23,7 @@
     float: left;
 }
 
-.navigate_bar .subject p {
+div.subject p {
     margin-left: 30px;
     font-size: 14pt;
 
@@ -32,7 +32,7 @@
     margin-bottom: 5px;
 }
 
-.navigate_bar .tasks {
+div.tasks {
     width: 100%;
     /*height: 0px;*/
     /*height: auto;*/
@@ -40,7 +40,7 @@
     float: left;
 }
 
-.navigate_bar .task {
+div.task {
     width: 100%;
     min-height: 20px;
     border-bottom: 1px solid #000E0D;
@@ -49,11 +49,24 @@
     line-break: strict;
 }
 
-.navigate_bar .task p {
+.task p {
     margin-left: 60px;
     font-size: 12pt;
 
     line-height: 14pt;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+a.task_link:link {
+    color: #AA8238;
+}
+a.task_link:visited {
+    color: #AA8238;
+}
+a.task_link:active {
+    color: #AA8238;
+}
+a.task_link:hover {
+    color: #A7373D;
 }

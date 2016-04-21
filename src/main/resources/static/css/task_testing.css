@@ -1,0 +1,29 @@
+div.task_testing_content {
+    /*border: 1px solid black;*/
+    overflow: hidden;
+    margin: 45px;
+    margin-top: 15px;
+}
+
+p.task_name {
+    color: #000E0D;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+p.task_description {
+    color: #000E0D;
+    font-size: 12pt;
+    margin-left: 20px;
+}
+
+textarea.form-control {
+    width: 700px;
+    height: 300px;
+    margin-left: 50px;
+}
+
+.btn.btn-default {
+    width: 80px;
+    margin-left: 50px;
+}

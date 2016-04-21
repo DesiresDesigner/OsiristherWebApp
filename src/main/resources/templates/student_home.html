@@ -15,7 +15,9 @@
         <div class="tasks">
             <td>
                 <tr th:each="task : ${course.tasks}">
-                    <div class="task" ><p th:text="${task.name}"></p></div>
+                    <a class="task_link" th:href="@{/task/} + ${task.id}">
+                        <div class="task" ><p th:text="${task.name}"></p></div>
+                    </a>
                 </tr>
             </td>
         </div>

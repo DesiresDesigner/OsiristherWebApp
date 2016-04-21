@@ -9,14 +9,20 @@
     <link rel="stylesheet" type="text/css" href="../static/css/navigate.css" th:href="@{/css/navigate.css}" />
     <link rel="stylesheet" type="text/css" href="../static/css/content.css" th:href="@{/css/content.css}" />
     <link rel="stylesheet" type="text/css" href="../static/css/results.css" th:href="@{/css/results.css}" />
+
     <title>Osiristher</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/task_testing.css" th:href="@{/css/task_testing.css}" />
 </head>
 <body>
     <header>
         <div class = "user_profile">
             <div class = "ava" style = "background-image: url('img/ava.png')"></div>
             <div class = "user_info">
-                <p th:text="${username}"></p>
+                <a class="home_link" th:href="@{/home}">
+                    <p th:text="${username}"></p>
+                </a>
                 <p th:text="'Student'" ></p>
                 <p th:text="'Log out'" ></p>
                 <!--DesiresDesigner <br>
