@@ -6,6 +6,7 @@ package com.osiristher.webapp.controller;
 
 import com.osiristher.webapp.dbtest.domain.Student;
 import com.osiristher.webapp.dbtest.service.StudentRepo;
+import com.osiristher.webapp.dbtest.service.TrainerRepo;
 import com.osiristher.webapp.provider.UserInfo;
 import com.osiristher.webapp.util.UserManagerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
     @Autowired
     StudentRepo studentRepo;
+    @Autowired
+    TrainerRepo trainerRepo;
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -25,17 +29,20 @@ public class MainController {
         return "home";
     }
 
-    @RequestMapping("/home") //routeUserAfterLogin home
-    public String home(Model model) {
+    @RequestMapping("/home")
+    public ModelAndView home() {
         UserInfo user = (UserInfo)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("username",user.getScreenName());
+        ModelAndView mav = new ModelAndView("admin");
+        mav.addObject("username",user.getScreenName());
         if (user.getRole().equals("ROLE_STUDENT")) {
-            //Student student = studentRepo.findOne(user.getId());
-            return "student_home";
+            mav.setViewName("student_home");
+            mav.addObject("student", studentRepo.findOne(user.getId()));
         }
-        if (UserManagerUtil.hasRole("ROLE_TRAINER"))
-            return "trainer";
-        return "admin";
+        if (UserManagerUtil.hasRole("ROLE_TRAINER")) {
+            mav.addObject("trainer", trainerRepo.findOne(user.getId()));
+            mav.setViewName("trainer_home");
+        }
+        return mav;
     }
 
     @RequestMapping("/test")

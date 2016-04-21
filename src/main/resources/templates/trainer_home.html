@@ -8,19 +8,7 @@
 <body>
 
 <div th:fragment="menu">
-    <div th:each="course : ${student.courses}">
-        <div class="subject">
-            <p th:text="${course.name}"></p>
-        </div>
-        <div class="tasks">
-            <td>
-                <tr th:each="task : ${course.tasks}">
-                    <div class="task" ><p th:text="${task.name}"></p></div>
-                </tr>
-            </td>
-        </div>
-    </div>
-    <!--<div class="subject"><p>Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 </p></div>
+    <div class="subject"><p>Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 </p></div>
     <div class="tasks">
         <div class="task"><p>Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 </p></div>
         <div class="task"><p>Task#2</p></div>
@@ -47,7 +35,7 @@
         <div class="task"><p>Task#2</p></div>
         <div class="task"><p>Task#3</p></div>
         <div class="task"><p>Task#4</p></div>
-    </div>-->
+    </div>
 </div>
 <div th:fragment="content">
     <table class="results">

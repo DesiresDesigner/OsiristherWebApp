@@ -27,7 +27,7 @@ public class Student {
     private Set<Student_task> student_tasks;
 
     @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="studTrainerent_course",
+    @JoinTable(name="student_course",
             joinColumns={@JoinColumn(name="student_id")},
             inverseJoinColumns={@JoinColumn(name="course_id")})
     private Set<Course> courses = new HashSet<>();
