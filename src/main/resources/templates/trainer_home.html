@@ -5,110 +5,128 @@
 <head>
     <title> </title>
 </head>
-<body>
+    <body>
+        <div th:fragment="content">
+            <!--<div th:if="${progress != null}" th:each="course : ${progress}">
+                <p th:text="${course.value.course.name}"></p>
+                <div th:if="${course != null}" th:each="task : ${course.value.tasks}">
+                    <div th:if="${task != null}" th:each="st : ${task.value.students}">
+                        <p th:text="${st.value.student.name}"></p>
+                        <p th:text="${st.value.task.name}"></p>
+                        <p th:text="${st.value.bestResult}"></p>
+                        <p th:text="${st.value.execMem}"></p>
+                        <p th:text="${st.value.execTime}"></p>
+                        <p th:text="${st.value.attempts}"></p>
+                    </div>
+                </div>
+            </div>-->
 
-<div th:fragment="menu">
-    <div class="subject"><p>Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 </p></div>
-    <div class="tasks">
-        <div class="task"><p>Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 </p></div>
-        <div class="task"><p>Task#2</p></div>
-        <div class="task"><p>Task#3</p></div>
-        <div class="task"><p>Task#4</p></div>
-    </div>
-    <div class="subject"><p>Subject#2</p></div>
-    <div class="tasks">
-        <div class="task"><p>Task#1</p></div>
-        <div class="task"><p>Task#2</p></div>
-        <div class="task"><p>Task#3</p></div>
-        <div class="task"><p>Task#4</p></div>
-    </div>
-    <div class="subject"><p>Subject#3</p></div>
-    <div class="tasks">
-        <div class="task"><p>Task#1</p></div>
-        <div class="task"><p>Task#2</p></div>
-        <div class="task"><p>Task#3</p></div>
-        <div class="task"><p>Task#4</p></div>
-    </div>
-    <div class="subject"><p>Subject#4</p></div>
-    <div class="tasks">
-        <div class="task"><p>Task#1</p></div>
-        <div class="task"><p>Task#2</p></div>
-        <div class="task"><p>Task#3</p></div>
-        <div class="task"><p>Task#4</p></div>
-    </div>
-</div>
-<div th:fragment="content">
-    <table class="results">
-        <col width="400"/>
-        <col width="100"/>
-        <col width="100"/>
-        <col width="100"/>
-        <col width="100"/>
-        <tr class="subject">
-            <th colspan = "5"><p>Предмет 1</p></th>
-        </tr>
-        <tr class="taskheader">
-            <th><p>Задача</p></th>
-            <th><p>Попытки</p></th>
-            <th><p>Время</p></th>
-            <th><p>Память</p></th>
-            <th><p>Статус</p></th>
-        </tr>
-        <tr class="task">
-            <td><p> Task#1 Task#1 Task#1 Task#1 Task#1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 100% </p></td>
-        </tr>
-        <tr class="task">
-            <td><p> Task#2 Task#1 Task#1 Task#1 Task#1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 100% </p></td>
-        </tr>
-        <tr class="task">
-            <td><p> Task#1 Task#1 Task#1 Task#1 Task#1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 100% </p></td>
-        </tr>
-        <tr class="subject">
-            <th colspan = "5"><p>Предмет 2</p></th>
-        </tr>
-        <tr class="taskheader">
-            <th><p>Задача</p></th>
-            <th><p>Попытки</p></th>
-            <th><p>Время</p></th>
-            <th><p>Память</p></th>
-            <th><p>Статус</p></th>
-        </tr>
-        <tr class="task">
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 100% </p></td>
-        </tr>
-        <tr class="task">
-            <td><p> 2 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 100% </p></td>
-        </tr>
-        <tr class="task">
-            <td><p> 3 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 1 </p></td>
-            <td><p> 100% </p></td>
-        </tr>
-    </table>
-</div>
+            <table class="results">
+                <col width="300"/>
+                <col width="200"/>
+                <col width="75"/>
+                <col width="75"/>
+                <col width="75"/>
+                <col width="75"/>
+                <td>
+                    <th:block th:inline="text" th:if="${progress != null}" th:each="course : ${progress}">
+                        <tr class="subject">
+                            <th colspan = "6"><p>[[${course.value.course.name}]]</p></th>
+                        </tr>
+                        <tr class="taskheader">
+                            <th><p>Задача</p></th>
+                            <th><p>Студент</p></th>
+                            <th><p>Попытки</p></th>
+                            <th><p>Время</p></th>
+                            <th><p>Память</p></th>
+                            <th><p>Статус</p></th>
+                        </tr>
+                        <th:block th:inline="text" th:if="${course != null}" th:each="task : ${course.value.tasks}">
+                            <th:block th:inline="text" th:if="${task != null}" th:each="st : ${task.value.students}">
+                                <tr class="task">
+                                    <td><p> [[${st.value.task.name}]] </p></td>
+                                    <td><p> [[${st.value.student.name}]] </p></td>
+                                    <td><p> [[${st.value.attempts}]] </p></td>
+                                    <td><p> [[${st.value.execTime}]] </p></td>
+                                    <td><p> [[${st.value.execMem}]] </p></td>
+                                    <td><p> [[${st.value.bestResult}]] </p></td>
+                                </tr>
+                            </th:block>
+                        </th:block>
+                    </th:block>
+                </td>
+            </table>
 
+            <!--<table class="results">
+                <col width="400"/>
+                <col width="100"/>
+                <col width="100"/>
+                <col width="100"/>
+                <col width="100"/>
+                <tr class="subject">
+                    <th colspan = "5"><p>Предмет 1</p></th>
+                </tr>
+                <tr class="taskheader">
+                    <th><p>Задача</p></th>
+                    <th><p>Попытки</p></th>
+                    <th><p>Время</p></th>
+                    <th><p>Память</p></th>
+                    <th><p>Статус</p></th>
+                </tr>
+                <tr class="task">
+                    <td><p> Task#1 Task#1 Task#1 Task#1 Task#1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 100% </p></td>
+                </tr>
+                <tr class="task">
+                    <td><p> Task#2 Task#1 Task#1 Task#1 Task#1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 100% </p></td>
+                </tr>
+                <tr class="task">
+                    <td><p> Task#1 Task#1 Task#1 Task#1 Task#1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 100% </p></td>
+                </tr>
+                <tr class="subject">
+                    <th colspan = "5"><p>Предмет 2</p></th>
+                </tr>
+                <tr class="taskheader">
+                    <th><p>Задача</p></th>
+                    <th><p>Попытки</p></th>
+                    <th><p>Время</p></th>
+                    <th><p>Память</p></th>
+                    <th><p>Статус</p></th>
+                </tr>
+                <tr class="task">
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 100% </p></td>
+                </tr>
+                <tr class="task">
+                    <td><p> 2 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 100% </p></td>
+                </tr>
+                <tr class="task">
+                    <td><p> 3 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 1 </p></td>
+                    <td><p> 100% </p></td>
+                </tr>
+            </table>-->
+        </div>
 
-</body>
+    </body>
 </html>

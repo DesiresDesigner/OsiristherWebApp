@@ -1,7 +1,5 @@
 package com.osiristher.webapp.dbtest.domain;
 
-import com.osiristher.webapp.dbtest.domain.util.StudentTaskId;
-
 import javax.persistence.*;
 
 /**
@@ -9,21 +7,24 @@ import javax.persistence.*;
  */
 
 @Entity
-@IdClass(StudentTaskId.class)
+//@IdClass(StudentTaskId.class)
 @Table(name = "student_task")
 public class Student_task {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", unique = true, nullable = false)
+    private Long id;
+
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "task_id")
     private Task task;
 
     @Column(name = "progress", unique = false, nullable = true)
-    private short progress;
+    private float progress;
 
     @Column(name = "time", unique = false, nullable = true)
     private int time;
@@ -50,11 +51,11 @@ public class Student_task {
         this.task = task;
     }
 
-    public short getProgress() {
+    public float getProgress() {
         return progress;
     }
 
-    public void setProgress(short progress) {
+    public void setProgress(float progress) {
         this.progress = progress;
     }
 

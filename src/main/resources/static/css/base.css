@@ -97,3 +97,14 @@ a.home_link:active {
 a.home_link:hover {
     color: #A7373D;
 }
+
+#logout_btn {
+    background-color: #000E0D;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#logout_btn:hover {
+    color: #A7373D;
+}

@@ -27,8 +27,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="OsiristherWebApp" target="1.8" />
-      <module name="untitledspring" target="1.8" />
+      <module name="OsiristherWebApp" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -22,23 +22,20 @@
             </div>
             <div class="form">
                 <div th:if="${param.error}">
-                Invalid username and password.
+                    Неверный логин или пароль.
                 </div>
                 <div th:if="${param.logout}">
-                You have been logged out.
+                    Вы вышли из системы.
                 </div>
                 <form th:action="@{/login}" method="post">
                     <div><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> </div>
                     <div class="form-group">
-                        <label> User name: <input type="text" name="username" class="form-control" placeholder="username"/> </label>
+                        <label> Логин: <input type="text" name="username" class="form-control" placeholder="username"/> </label>
                     </div>
                     <div class="form-group">
-                        <label> Password: <input type="password" name="password" class="form-control" placeholder="password"/> </label>
+                        <label> Пароль: <input type="password" name="password" class="form-control" placeholder="password"/> </label>
                     </div>
-                    <!--<div><label> User Name : <input type="text" name="username"/> </label></div>
-                    <div><label> Password: <input type="password" name="password"/> </label></div>-->
-
-                    <div class="form-group"><input type="submit" class="btn btn-default" value="Sign In"/></div>
+                    <div class="form-group"><input type="submit" class="btn btn-default" value="Войти"/></div>
                 </form>
             </div>
         </div>

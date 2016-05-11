@@ -7,8 +7,8 @@
 </head>
 <body>
 
-<div th:fragment="menu">
-    <div th:each="course : ${student.courses}">
+<!--<div th:fragment="menu">
+    <div th:if="${course != null}" th:each="course : ${student.courses}">
         <div class="subject">
             <p th:text="${course.name}"></p>
         </div>
@@ -22,7 +22,7 @@
             </td>
         </div>
     </div>
-    <!--<div class="subject"><p>Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 </p></div>
+    &lt;!&ndash;<div class="subject"><p>Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 Subject#1 </p></div>
     <div class="tasks">
         <div class="task"><p>Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 Task#1 </p></div>
         <div class="task"><p>Task#2</p></div>
@@ -49,10 +49,40 @@
         <div class="task"><p>Task#2</p></div>
         <div class="task"><p>Task#3</p></div>
         <div class="task"><p>Task#4</p></div>
-    </div>-->
-</div>
+    </div>&ndash;&gt;
+</div>-->
 <div th:fragment="content">
     <table class="results">
+        <col width="400"/>
+        <col width="100"/>
+        <col width="100"/>
+        <col width="100"/>
+        <col width="100"/>
+        <td>
+            <th:block th:inline="text" th:if="${progress != null}" th:each="course : ${progress}">
+                <tr class="subject">
+                    <th colspan = "5"><p>[[${course.value.course.name}]]</p></th>
+                </tr>
+                <tr class="taskheader">
+                    <th><p>Задача</p></th>
+                    <th><p>Попытки</p></th>
+                    <th><p>Время</p></th>
+                    <th><p>Память</p></th>
+                    <th><p>Статус</p></th>
+                </tr>
+                <th:block th:inline="text" th:if="${course != null}" th:each="st : ${course.value.student_tasks}">
+                    <tr class="task">
+                        <td><p> [[${st.value.task.name}]] </p></td>
+                        <td><p> [[${st.value.attempts}]] </p></td>
+                        <td><p> [[${st.value.execTime}]] </p></td>
+                        <td><p> [[${st.value.execMem}]] </p></td>
+                        <td><p> [[${st.value.bestResult}]] </p></td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </td>
+    </table>
+    <!--<table class="results">
         <col width="400"/>
         <col width="100"/>
         <col width="100"/>
@@ -120,7 +150,7 @@
             <td><p> 1 </p></td>
             <td><p> 100% </p></td>
         </tr>
-    </table>
+    </table>-->
 </div>
 
 

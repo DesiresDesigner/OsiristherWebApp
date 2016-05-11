@@ -13,41 +13,66 @@
     <title>Osiristher</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/task_testing.css" th:href="@{/css/task_testing.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/css/task.css" th:href="@{/css/task.css}" />
 </head>
-<body>
-    <header>
-        <div class = "user_profile">
-            <div class = "ava" style = "background-image: url('img/ava.png')"></div>
-            <div class = "user_info">
-                <a class="home_link" th:href="@{/home}">
-                    <p th:text="${username}"></p>
-                </a>
-                <p th:text="'Student'" ></p>
-                <p th:text="'Log out'" ></p>
-                <!--DesiresDesigner <br>
-                Student <br>
-                Log out-->
+    <body>
+        <header>
+            <div class = "user_profile">
+                <div class = "ava" style = "background-image: url('img/ava.png')"></div>
+                <div class = "user_info">
+                    <a class="home_link" th:href="@{/home}">
+                        <p th:text="${user.name}"></p>
+                    </a>
+                    <p th:text="${role}" ></p>
+                    <!--<a class="home_link" th:href="@{/logout}">
+                        <p th:text="'Log out'" ></p>
+                    </a>-->
+                    <form th:action="@{/logout}" method="post">
+                        <div><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> </div>
+                        <input id="logout_btn" type="submit" value="Sign Out"/>
+                    </form>
+                </div>
+            </div>
+
+            <div class="logo">
+                <p class = "name">Osiristher</p>
+                <p class = "subname">Testing System</p>
+            </div>
+        </header>
+
+        <div id = "base">
+
+            <div class="navigate_bar">
+                <div th:if="${not #lists.isEmpty(user.courses)}" th:each="course : ${user.courses}">
+                    <div class="subject">
+                        <p th:text="${course.name}"></p>
+                    </div>
+                    <div th:if="${not #lists.isEmpty(course.tasks)}" class="tasks">
+                        <td>
+                            <tr th:each="task : ${course.tasks}">
+                                <a class="task_link" th:href="@{/task/} + ${task.id}">
+                                    <div class="task" ><p th:text="${task.name}"></p></div>
+                                </a>
+                            </tr>
+                            <tr th:if="${role == 'Trainer'}">
+                                <a class="task_link" th:href="@{/newtask/} + ${course.id}">
+                                    <div class="task"><p>
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        Новое задание
+                                    </p></div>
+                                </a>
+                            </tr>
+                        </td>
+                    </div>
+                </div>
+            </div>
+            <div class = "content" th:include="this :: content">
+
             </div>
         </div>
 
-        <div class="logo">
-            <p class = "name">Osiristher</p>
-            <p class = "subname">Testing System</p>
-        </div>
-    </header>
-
-    <div id = "base">
-        <div class="navigate_bar" th:include="this :: menu">
-
-        </div>
-        <div class = "content" th:include="this :: content">
-
-        </div>
-    </div>
-
-    <footer>
-        <p>Made by DesiresDesigner</p>
-    </footer>
-</body>
+        <footer>
+            <p>Made by DesiresDesigner</p>
+        </footer>
+    </body>
 </html>

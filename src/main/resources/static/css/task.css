@@ -1,4 +1,4 @@
-div.task_testing_content {
+div.task_content {
     /*border: 1px solid black;*/
     overflow: hidden;
     margin: 45px;
@@ -17,13 +17,33 @@ p.task_description {
     margin-left: 20px;
 }
 
-textarea.form-control {
+.task_content textarea {
     width: 700px;
     height: 300px;
+}
+
+.task_content .form-group {
     margin-left: 50px;
 }
 
 .btn.btn-default {
-    width: 80px;
+    min-width: 80px;
     margin-left: 50px;
+}
+
+.link_in_content {
+    font-size: 8pt;
+    color: #000E0D;
+}
+
+.link_in_content:visited {
+    color: #000E0D;
+}
+
+.link_in_content:active {
+    color: #000E0D;
+}
+
+.link_in_content:hover {
+    color: #A7373D;
 }
